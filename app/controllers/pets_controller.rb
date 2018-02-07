@@ -10,7 +10,7 @@ class PetsController < ApplicationController
   end
 
   post '/pets' do
-    raise params.inspect
+    # raise params.inspect
     @pet = Pet.create(params[:pet])
     if params["owner"]
       @pet.owner = Owner.find(params["owner"])
