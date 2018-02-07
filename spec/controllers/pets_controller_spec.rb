@@ -36,6 +36,7 @@ describe "Pets Controller" do
       fill_in "pet_name", :with => "Michael"
       check(@owner1.id)
       click_button "Create Pet"
+      binding.pry
       @pet = Pet.last
       expect(@pet.name).to eq("Michael")
       expect(@pet.owner.name).to eq("Cricky")
@@ -46,11 +47,12 @@ describe "Pets Controller" do
       fill_in "pet_name", :with => "Pippa"
       fill_in "owner_name", :with => "Mary Nelson"
       click_button "Create Pet"
+      binding.pry
       @owner = Owner.last
       @pet = Pet.last
       expect(@pet.name).to eq("Pippa")
       expect(@pet.owner.name).to eq("Mary Nelson")
-      binding.pry
+
     end
 
     it "redirects to '/pets/:id' after form submissions" do
