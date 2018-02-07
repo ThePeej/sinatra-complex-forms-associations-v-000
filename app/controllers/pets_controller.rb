@@ -32,7 +32,7 @@ class PetsController < ApplicationController
   end
 
   post '/pets/:id' do
-    @pet = Owner.find(params[:id])
+    @pet = Pet.find(params[:id])
     if params["owner"]
       @pet.owner = Owner.find(params["owner"])
     elsif !params["owner_name"].empty?
